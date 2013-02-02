@@ -13,7 +13,9 @@ module LeafyCuiClient
         abort "#{CONFIG_FILE} contains invalid YAML syntax."
       end
       print "Password: "
-      @password = STDIN.noecho(&:gets).chop
+      system "stty -echo"
+      @password = $stdin.gets.chop
+      system "stty echo"
       puts "\n"
     end
 
