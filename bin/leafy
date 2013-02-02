@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'leafy_cui_client'
-if ARGV.size == 0 || ARGV.size > 1
+if ARGV.size > 1
   puts <<-D
   Usage:
   leafy [interval_second (default=60)]
@@ -10,6 +10,14 @@ if ARGV.size == 0 || ARGV.size > 1
 
   D
   exit!
+else
+  DEFAULT_INTERVAL = 60
+  if ARGV.size == 1
+    interval = ARGV[0].to_i
+    abort "#{interval} is too short. Set the time longer than #{DEFAULT_INTERVAL} second." if interval < DEFAULT_INTERVAL
+  else
+    interval = DEFAULT_INTERVAL
+  end
+  LeafyCuiClient.run!(interval)
 end
 
-LeafyCuiClient.run!(ARGV[0])
