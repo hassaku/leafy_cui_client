@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+require 'leafy_cui_client'
+if ARGV.size == 0 || ARGV.size > 1
+  puts <<-D
+  Usage:
+  leafy [interval_second (default=60)]
+
+  Examples:
+  leafy 20
+
+  D
+  exit!
+end
+
+LeafyCuiClient.run!(ARGV[0])
