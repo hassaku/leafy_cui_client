@@ -14,7 +14,8 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install leafy_cui_client
+    $ gem install --source http://github.com/hassaku/leafy_cui_client/raw/master/ leafy_cui_client
+    ($ gem install leafy_cui_client)
 
 ## Usage
 

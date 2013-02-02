@@ -14,4 +14,9 @@ Gem::Specification.new do |gem|
   gem.name          = "leafy_cui_client"
   gem.require_paths = ["lib"]
   gem.version       = LeafyCuiClient::VERSION
+
+  gem.add_runtime_dependency "mechanize"
+  gem.add_runtime_dependency "rainbow"
+
+  #gem.add_development_dependency 'rspec'
 end

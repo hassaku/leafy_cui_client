@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'leafy_cui_client'
+
+LeafyCuiClient.post!
