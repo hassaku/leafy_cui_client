@@ -4,7 +4,7 @@ require "leafy_cui_client/tweet"
 require "leafy_cui_client/login_info"
 
 require 'time'
-require 'io/console'
+#require 'io/console' # only if RUBY_VERSION >= '1.9.3'
 require 'yaml'
 require "yaml/store"
 require 'tempfile'
