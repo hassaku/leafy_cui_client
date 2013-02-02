@@ -1,12 +1,12 @@
 # LeafyCuiClient
 
-TODO: Write a gem description
+Simple CUI client for Leafy.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'leafy_cui_client'
+    gem 'leafy_cui_client', :git => 'git://github.com/hassaku/leafy_cui_client.git'
 
 And then execute:
 
@@ -14,12 +14,20 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install --source http://github.com/hassaku/leafy_cui_client/raw/master/ leafy_cui_client
-    ($ gem install leafy_cui_client)
+    $ git clone git@github.com:hassaku/leafy_cui_client.git
+    $ cd leafy_cui_client
+    $ gem build leafy_cui_client.gemspec
+    $ gem install leafy_cui_client-***.gem
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ leafy      # read feeds
+    $ leafy_post # post a message
+
+## TODO
+
+    - Daemonize
+    - Use druby to post a message without password
 
 ## Contributing
 
