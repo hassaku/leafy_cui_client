@@ -24,11 +24,6 @@ Or install it yourself as:
     $ leafy      # read feeds
     $ leafy_post # post a message
 
-## TODO
-
-    - Daemonize
-    - Use druby to post a message without password
-
 ## Contributing
 
 1. Fork it
