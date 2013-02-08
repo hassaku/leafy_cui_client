@@ -7,6 +7,7 @@ require 'time'
 #require 'io/console' # only if RUBY_VERSION >= '1.9.3'
 require 'yaml'
 require "yaml/store"
+require 'psych'
 require 'tempfile'
 
 require 'mechanize'
