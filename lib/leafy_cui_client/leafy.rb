@@ -4,10 +4,10 @@ module LeafyCuiClient
     def initialize
       @info = LoginInfo.new
       @latest_date = Time.parse("1970/01/01 00:00")
+      @agent = Mechanize.new
     end
 
     def login!
-      @agent = Mechanize.new
       if proxy = ENV['HTTP_PROXY'] || ENV['http_proxy']
         uri = URI.parse(proxy)
         @agent.set_proxy(uri.host, uri.port, uri.user, uri.password)
@@ -26,19 +26,20 @@ module LeafyCuiClient
       end
     end
 
-    def post
-      message = input_with_editor
+    def post(text = nil)
+      message = text || input_with_editor
+      @agent.get('/')
       message_form = @agent.page.form(id: 'new_status')
       message_form.field_with(name: 'status[text]').value = message
       if message.empty?
         abort "\nAborting post due to empty message."
       end
-      puts "Sending following message :"
-      puts message
+      print "\nSending following message : #{message}\n> "
       @agent.submit(message_form)
     end
 
     def view
+      @agent.get('/')
       tweets = @agent.page.search('div[@class="status-body"]').inject([]) {|ts, obj| ts << Tweet.new(obj) }
       tweets.reverse.each do |tweet|
         next if tweet.date.to_i <= @latest_date.to_i
@@ -47,7 +48,7 @@ module LeafyCuiClient
         puts "[#{tweet.author} - #{tweet.date}]".color(:cyan)
         puts decorated tweet.message
       end
-      print "."
+      # print "."
       @latest_date = tweets.first.date
     end
 
