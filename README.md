@@ -21,8 +21,8 @@ Or install it yourself as:
 
 ## Usage
 
-    $ leafy      # read feeds
-    $ leafy_post # post a message
+    $ leafy      # read feeds and post a message interactively
+    $ leafy_post # post a message by using editor (plsease set LEAFY_EDITOR in advance)
 
 ## Contributing
 
